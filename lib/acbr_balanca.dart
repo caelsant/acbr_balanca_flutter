@@ -178,7 +178,7 @@ class AcbrBalanca implements IAcbrBal {
         .asFunction<
             int Function(ffi.Pointer<ffi.Int>, ffi.Pointer<ffi.Double>)>();
 
-    referenceIntMilliseconds.value = 300;
+    referenceIntMilliseconds.value = 200;
 
     int callLePesoString =
         lePesoStirng.call(referenceIntMilliseconds, referenceDoublePeso);
