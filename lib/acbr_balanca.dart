@@ -13,8 +13,6 @@ import 'package:ffi/ffi.dart';
 import 'dart:ffi' as ffi;
 import 'AcbrBal/acbrbal_native_func.dart';
 
-abstract class _IAcbrBalanca {}
-
 abstract class IAcbrBal {
   Future<Errorhandling<int, String>> inicializar(String arquivoIni,
       {String? chaveCrypt});
@@ -185,18 +183,6 @@ class AcbrBalanca implements IAcbrBal {
 
     if (callLePesoString == 0) {
       peso = referenceDoublePeso.value;
-
-      if (peso == -1 || peso == -1.000) {
-        return error("Balança com peso instavel ${peso}kg");
-      }
-
-      if (peso == -10 || peso == -10.000) {
-        return error("Balança com sobrepeso ${peso}kg");
-      }
-
-      if (peso == -2 || peso == -2.000 || peso < 0) {
-        return error("Balança com peso negativo ${peso}kg");
-      }
     }
 
     if (callLePesoString == -1) {
