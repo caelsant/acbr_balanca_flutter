@@ -169,7 +169,7 @@ class AcbrBalanca implements IAcbrBal {
     double peso = 0.00;
 
     ffi.Pointer<ffi.Int> referenceIntMilliseconds =
-        calloc.allocate<ffi.Int>(200);
+        calloc.allocate<ffi.Int>(256);
     ffi.Pointer<ffi.Double> referenceDoublePeso =
         calloc.allocate<ffi.Double>(256);
 
@@ -177,6 +177,8 @@ class AcbrBalanca implements IAcbrBal {
         .lookup<ffi.NativeFunction<NATIVE_LEPESO>>(AcbrFuncDoc.lePeso.func)
         .asFunction<
             int Function(ffi.Pointer<ffi.Int>, ffi.Pointer<ffi.Double>)>();
+
+    referenceIntMilliseconds.value = 300;
 
     int callLePesoString =
         lePesoStirng.call(referenceIntMilliseconds, referenceDoublePeso);

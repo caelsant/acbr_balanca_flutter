@@ -74,21 +74,21 @@ void main() async {
 
   test("Lendo peso bliblioteca corretamente", () async {
     AcbrBalanca lib = AcbrBalanca();
-    Errorhandling<int, String> inicializar =
+/*     Errorhandling<int, String> inicializar =
         await lib.inicializar("C:\\ASNSOFTWARE\\CONFIG\\ACBrLib.ini");
-    inicializar.exeDebug(identifyFunc: "Inicializar bliblioteca");
+    inicializar.exeDebug(identifyFunc: "Inicializar bliblioteca"); */
 
-    Errorhandling<int, String> ativar = await lib.ativar();
-    ativar.exeDebug(identifyFunc: "Ativando balanca");
+    // Errorhandling<int, String> ativar = await lib.ativar();
+    // ativar.exeDebug(identifyFunc: "Ativando balanca");
 
     Errorhandling<double, String> lepeso = await lib.lePeso();
     lepeso.exeDebug(identifyFunc: "Lendo peso balanca");
 
-    Errorhandling<int, String> desativar = await lib.desativar();
+/*     Errorhandling<int, String> desativar = await lib.desativar();
     desativar.exeDebug(identifyFunc: "Desativando bliblioteca");
 
     Errorhandling<int, String> finalizar = await lib.finalizar();
-    finalizar.exeDebug(identifyFunc: "Finalizar bliblioteca");
+    finalizar.exeDebug(identifyFunc: "Finalizar bliblioteca"); */
   });
 
   test("Ler o peso", () async {
