@@ -20,4 +20,4 @@ typedef NATIVE_NOMELIB = ffi.Int Function();
 
 // Método usado para ler o peso na balança no componente ACBrBAL.
 typedef NATIVE_LEPESO = ffi.Int Function(
-    ffi.Pointer<ffi.Int> millisecTimeOut, ffi.Pointer<ffi.Double> peso);
+    ffi.Int millisecTimeOut, ffi.Pointer<ffi.Double> peso);

@@ -168,20 +168,14 @@ class AcbrBalanca implements IAcbrBal {
       {int? timeOutMilliseconds}) async {
     double peso = 0.00;
 
-    ffi.Pointer<ffi.Int> referenceIntMilliseconds =
-        calloc.allocate<ffi.Int>(256);
     ffi.Pointer<ffi.Double> referenceDoublePeso =
         calloc.allocate<ffi.Double>(256);
 
     final lePesoStirng = lib.library
         .lookup<ffi.NativeFunction<NATIVE_LEPESO>>(AcbrFuncDoc.lePeso.func)
-        .asFunction<
-            int Function(ffi.Pointer<ffi.Int>, ffi.Pointer<ffi.Double>)>();
+        .asFunction<int Function(int, ffi.Pointer<ffi.Double>)>();
 
-    referenceIntMilliseconds.value = 200;
-
-    int callLePesoString =
-        lePesoStirng.call(referenceIntMilliseconds, referenceDoublePeso);
+    int callLePesoString = lePesoStirng.call(200, referenceDoublePeso);
 
     if (callLePesoString == 0) {
       peso = referenceDoublePeso.value;
@@ -195,7 +189,6 @@ class AcbrBalanca implements IAcbrBal {
       return error("Houve erro ao ler peso da balanca ACBrBAL");
     }
 
-    calloc.free(referenceIntMilliseconds);
     calloc.free(referenceDoublePeso);
     return sucess(peso);
   }
